@@ -13,7 +13,7 @@ export class BoardsController {
   ) {}
 
   @Get()
-  getAllBoards(): Board[] {
-    return this.boardsService.getAllBoards();
+  getAll(): Board[] {
+    return this.boardsService.getAll();
   }
 }

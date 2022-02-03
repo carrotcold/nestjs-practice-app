@@ -5,7 +5,7 @@ import { Board } from './interfaces/board.interface';
 export class BoardsService {
   private boards: Board[] = [];
 
-  getAllBoards(): Board[] {
+  getAll(): Board[] {
     return this.boards;
   }
 }
