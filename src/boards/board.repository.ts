@@ -1,6 +1,6 @@
 import { NotFoundException } from '@nestjs/common';
 import { EntityRepository, Repository } from 'typeorm';
-import { Board } from './board.entity';
+import { Board } from './entities/board.entity';
 import { CreateBoardDto } from './dto/create-board.dto';
 import { BoardStatus } from './enum/board-status.enum';
 
