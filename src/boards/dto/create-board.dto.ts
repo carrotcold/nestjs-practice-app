@@ -1,3 +1,5 @@
+import { IsNotEmpty } from 'class-validator';
+
 /**
  * DTO는 interface, class 둘다 사용 가능하지만
  * class는 interface와 다르게 런타임에서 작동하기 때문에
@@ -5,6 +7,7 @@
  */
 
 export class CreateBoardDto {
+  @IsNotEmpty()
   title: string;
   description: string;
 }
