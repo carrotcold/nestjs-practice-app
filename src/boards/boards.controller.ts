@@ -12,6 +12,7 @@ import {
 import { BoardsService } from './boards.service';
 import { CreateBoardDto } from './dto/create-board.dto';
 import { Board, BoardStatus } from './interfaces/board.interface';
+import { BoardStatusValidationPipe } from './pipes/board-status-validation.pipe';
 
 @Controller('boards')
 export class BoardsController {
@@ -36,7 +37,6 @@ export class BoardsController {
 
   @Get('/:id')
   getBoardById(@Param('id') id: string): Board {
-    console.log(id);
     return this.boardsService.getBoardById(id);
   }
 
@@ -48,7 +48,11 @@ export class BoardsController {
   @Patch('/:id/status')
   updateBoardStatus(
     @Param('id') id: string,
-    @Body('status') stauts: BoardStatus,
+    @Body(
+      'status',
+      BoardStatusValidationPipe /* Binding Pipe (parameter-level) */,
+    )
+    stauts: BoardStatus,
   ): Board {
     return this.boardsService.updateBoardStatus(id, stauts);
   }
